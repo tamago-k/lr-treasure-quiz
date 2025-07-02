@@ -36,5 +36,5 @@ pip install fastapi uvicorn
 
 docker compose up --build -d
 
-拝借予定素材サイト
-#　 https://dotown.maeda-design-room.net/
+## Node.js バージョン切り替え例（nvm使用）
+https://dotown.maeda-design-room.net/
