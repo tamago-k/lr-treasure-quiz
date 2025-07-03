@@ -158,14 +158,6 @@ export default function QuestionScreen({
           <div className={common.buttonAns}>{buttons}</div>
         </div>
       </div>
-      <Image
-        src="/images/treasure.svg"
-        alt="宝箱"
-        width={100}
-        height={87}
-        className={common.treasureIcon}
-        priority={true}
-      />
     </div>
   )
 }
