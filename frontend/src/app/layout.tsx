@@ -140,7 +140,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // children に language propを追加して渡す（ページやコンポーネントで受け取れる）
   const childrenWithLanguage = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, { language });
+      // 一時的に any キャストして型エラーを無視する
+      return React.cloneElement(child, { language } as any);
     }
     return child;
   });
