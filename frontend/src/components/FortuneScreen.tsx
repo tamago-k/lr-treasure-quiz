@@ -12,10 +12,42 @@ type Props = {
   onTitle: () => void
 }
 
+const translations = {
+  ja: {
+    title: (
+      <>
+        あなたの<ruby>運勢<rt>うんせい</rt></ruby>は…
+      </>
+    ),
+    text: (
+      <>
+        <ruby>船<rt>ふね</rt></ruby>は<ruby>沈没<rt>ちんぼつ</rt></ruby>した。。。
+      </>
+    ),
+    retry: (
+      <>
+        もう<ruby>一度<rt>いちど</rt></ruby><ruby>挑戦<rt>ちょうせん</rt></ruby>
+      </>
+    ),
+    backToStart: (
+      <>
+        タイトルへ<ruby>戻<rt>もど</rt></ruby>る
+      </>
+    ),
+  },
+  en: {
+    title: 'Your fortune is...',
+    text: 'The ship sank...',
+    retry: 'Try Again',
+    backToStart: 'Back to Title',
+  },
+}
+
 export default function FortuneScreen({ onRestart, onTitle }: Props) {
   const [fortune, setFortune] = useState('')
   const { language } = useLang()
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
+  const t = translations[language]
 
   useEffect(() => {
     fetch(`${API_BASE_URL}/fortune?language=${language}`)
@@ -34,7 +66,7 @@ export default function FortuneScreen({ onRestart, onTitle }: Props) {
                 key={col}
                 src="/images/green.svg"
                 alt="green"
-                width={40}        // サイズは適宜調整してください
+                width={40} 
                 height={40}
                 className={common.greenTile}
               />
@@ -52,13 +84,16 @@ export default function FortuneScreen({ onRestart, onTitle }: Props) {
             height={114}
             className={common.omikujiIcon}
           />
-          <p>{language === 'ja' ? 'あなたの運勢は…' : 'Your fortune is...'}</p>
-          <p style={{ fontSize: '1.6rem', margin: '1rem 0' }}>{fortune}</p>
+          <p>{t.title}</p>
+          <p 
+            style={{ fontSize: '1.6rem', margin: '1rem 0' }} 
+            dangerouslySetInnerHTML={{ __html: fortune }}
+          />
           <button className={common.blackButton} onClick={onRestart}>
-            {language === 'ja' ? 'もう一度遊ぶ' : 'Play Again'}
+            {t.retry}
           </button>
           <button className={common.blackButton} onClick={onTitle}>
-            {language === 'ja' ? 'タイトルに戻る' : 'Back to Title'}
+            {t.backToStart}
           </button>
         </div>
       </div>

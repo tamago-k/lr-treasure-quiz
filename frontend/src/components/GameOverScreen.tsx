@@ -12,10 +12,26 @@ type Props = {
 
 const translations = {
   ja: {
-    difficultyLabel: '難易度',
-    text: '船は沈没した。。。',
-    retry: 'もう一度挑戦',
-    backToStart: 'タイトルへ戻る',
+    difficultyLabel: (
+      <>
+        <ruby>難易度<rt>なんいど</rt></ruby>
+      </>
+    ),
+    text: (
+      <>
+        <ruby>船<rt>ふね</rt></ruby>は<ruby>沈没<rt>ちんぼつ</rt></ruby>した。。。
+      </>
+    ),
+    retry: (
+      <>
+        もう<ruby>一度<rt>いちど</rt></ruby><ruby>挑戦<rt>ちょうせん</rt></ruby>
+      </>
+    ),
+    backToStart: (
+      <>
+        タイトルへ<ruby>戻<rt>もど</rt></ruby>る
+      </>
+    ),
   },
   en: {
     difficultyLabel: 'Difficulty',
@@ -31,9 +47,9 @@ export default function GameOverScreen({ difficulty, onRetry, onBackToStart, lan
   return (
     <div className={common.screen}>
       <div className={common.blackBox} style={{ minHeight: '58%' }}>
-        <h2>GAME OVER</h2>
-        <p>{t.text}</p>
-        <p>{t.difficultyLabel}: {difficulty}</p>
+        <h2 style={{ fontSize: '2rem' }}>GAME OVER</h2>
+        <p style={{ marginTop: '1rem' }}>{t.text}</p>
+        <p style={{ marginTop: '1rem' }}>{t.difficultyLabel}: {difficulty}</p>
         <div className={common.buttonGroup}>
           <button className={common.blackButton} onClick={onRetry}>
             {t.retry}

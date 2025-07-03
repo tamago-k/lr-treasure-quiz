@@ -11,7 +11,11 @@ type Props = {
 const translations = {
   ja: {
     title: 'おめでとう！',
-    message: '宝箱をタップしてね',
+    message: (
+      <>
+        <ruby>宝箱<rt>たからばこ</rt></ruby>をタップしてね
+      </>
+    ),
   },
   en: {
     title: 'Congratulations!',

@@ -14,10 +14,22 @@ type Props = {
 
 const translations = {
   ja: {
-    notion: '進むべき方向を選ぼう！',
-    loading: '問題データを読み込み中です...',
+    notion: (
+      <>
+        <ruby>進<rt>すす</rt></ruby>むべき<ruby>方向<rt>ほうこう</rt></ruby>を<ruby>選<rt>えら</rt></ruby>ぼう！
+      </>
+    ),
+    loading: (
+      <>
+        <ruby>問題<rt>もんだい</rt></ruby>データを<ruby>読<rt>よ</rt></ruby>み<ruby>込<rt>こ</rt></ruby>み<ruby>中<rt>ちゅう</rt></ruby>です...
+      </>
+    ),
     slash: '/',
-    coution: '文字に騙されず正しい方向を押してね',
+    coution: (
+      <>
+        <ruby>文字<rt>もじ</rt></ruby>に<ruby>騙<rt>だば</rt></ruby>されず<ruby>正<rt>ただ</rt></ruby>しい<ruby>方向<rt>ほうこう</rt></ruby>を<ruby>押<rt>お</rt></ruby>してね
+      </>
+    ),
   },
   en: {
     notion: 'Choose the direction to move forward!',
@@ -156,7 +168,10 @@ export default function QuestionScreen({
             <br />
             <span className={common.timerNum}>{timeLeft}</span>
           </div>
-          <p className={common.question}>{questions[currentIndex].prompt}</p>
+          <p
+            className={common.question}
+            dangerouslySetInnerHTML={{ __html: questions[currentIndex].prompt }}
+          />
           <div className={common.buttonAns}>{buttons}</div>
           {difficulty === 'hard' && (
             <p style={{ marginTop: '20px' }}>*{t.coution}</p>
