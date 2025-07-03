@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import common from '../styles/common.module.css'
 
@@ -162,6 +163,15 @@ export default function QuestionScreen({
           )}
         </div>
       </div>
+
+      <Image
+        src="/images/yusya.svg"
+        alt="勇者"
+        width={70}
+        height={98}
+        className={common.yusyaIcon}
+        priority={true}
+      />
     </div>
   )
 }
