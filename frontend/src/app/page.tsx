@@ -82,6 +82,7 @@ export default function Home() {
       {gameState === 'fortune' && (
         <FortuneScreen
           language={language}
+          difficulty={difficulty}
           onRestart={() => setGameState('question')}
           onTitle={() => setGameState('start')}
         />
