@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   // 初期表示で適当にいくつか配置（右から左に100px間隔で）
   useEffect(() => {
-    let initialItems: Item[] = [];
+    const initialItems: Item[] = [];
     let idCounter = 0;
     let leftPos = 100;
 

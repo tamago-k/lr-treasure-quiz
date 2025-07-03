@@ -17,7 +17,7 @@ type GameState =
   | 'fortune'
 
 export default function Home() {
-  const { language, setLanguage } = useLang();
+  const { language } = useLang();
   const [gameState, setGameState] = useState<GameState>('start')
   const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('easy')
   const [questions, setQuestions] = useState([])
