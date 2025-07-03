@@ -1,4 +1,6 @@
 "use client";
+
+import Image from 'next/image'
 import React, { useEffect, useState } from "react";
 import "./globals.css";
 import { LangProvider } from '../lib/langContext'
@@ -160,36 +162,59 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="background">
               <div className="sky">
                 {items.map(({ id, src, top, left, type }) => (
-                  <img
+                  <div
                     key={id}
-                    src={src}
-                    alt=""
-                    className="moving-item"
                     style={{
-                      top: type === "mountain" ? undefined : `${top}%`,
-                      bottom: type === "mountain" ? -10 : undefined,
+                      position: 'absolute',
+                      top: type === 'mountain' ? undefined : `${top}%`,
+                      bottom: type === 'mountain' ? -10 : undefined,
                       left: `${left}%`,
                       width: id % 2 === 0 ? 80 : 50,
-                      position: "absolute",
-                      pointerEvents: "none",
-                      userSelect: "none",
-                      transition: "left 0.05s linear",
+                      pointerEvents: 'none',
+                      userSelect: 'none',
+                      transition: 'left 0.05s linear',
                     }}
-                  />
+                  >
+                    <Image
+                      src={src}
+                      alt=""
+                      width={id % 2 === 0 ? 80 : 50}
+                      height={id % 2 === 0 ? 80 : 50} // 高さは幅に合わせて調整してください
+                      priority={true}
+                      unoptimized={true} // 任意、必要に応じて
+                      style={{ display: 'block' }}
+                    />
+                  </div>
                 ))}
               </div>
 
               <div className="sea-wrapper">
                 <div className="sea1">
                   {[...Array(10)].map((_, i) => (
-                    <img key={i} src="/images/sea1.svg" alt="sea1" className="sea1-tile" />
+                    <Image
+                      key={i}
+                      src="/images/sea1.svg"
+                      alt="sea1"
+                      width={100}  // タイルのサイズに合わせて調整してください
+                      height={100}
+                      className="sea1-tile"
+                      priority={true}
+                    />
                   ))}
                 </div>
                 <div className="sea2">
                   {[...Array(15)].map((_, row) => (
                     <div key={row} className="sea2-row">
                       {[...Array(10)].map((_, col) => (
-                        <img key={col} src="/images/sea2.svg" alt="sea2" className="sea2-tile" />
+                        <Image
+                          key={col}
+                          src="/images/sea2.svg"
+                          alt="sea2"
+                          width={100}  // タイルサイズに合わせて
+                          height={100}
+                          className="sea2-tile"
+                          priority={true}
+                        />
                       ))}
                     </div>
                   ))}

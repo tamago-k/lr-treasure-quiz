@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import common from '../styles/common.module.css'
 
 type Props = {
@@ -69,10 +70,13 @@ export default function DifficultyScreen({ onSelect, language }: Props) {
 
         <p>{t.description}</p>
       </div>
-      <img
-        src="images/dolphin.svg"
-        alt={language === 'ja' ? 'イルカ' : 'Dolphin'}
+      <Image
+        src="/images/dolphin.svg"
+        alt="イルカ"
+        width={40}
+        height={32}
         className={common.dolphinIcon}
+        priority={true}
       />
     </div>
   )

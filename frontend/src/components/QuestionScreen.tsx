@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 import common from '../styles/common.module.css'
 
 type Props = {
@@ -157,10 +158,13 @@ export default function QuestionScreen({
           <div className={common.buttonAns}>{buttons}</div>
         </div>
       </div>
-      <img
-        src="images/yusya.svg"
-        alt="勇者"
-        className={common.yusyaIcon}
+      <Image
+        src="/images/treasure.svg"
+        alt="宝箱"
+        width={100}
+        height={87}
+        className={common.treasureIcon}
+        priority={true}
       />
     </div>
   )

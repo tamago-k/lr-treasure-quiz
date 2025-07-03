@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import common from '../styles/common.module.css'
 
 type Props = {
@@ -27,17 +28,21 @@ export default function StartScreen({ language, onStart }: Props) {
   return (
     <div className={common.screen}>
       <div className={common.blackBox}>
-      <h1 className={common.title}>{translations[language].title}</h1>
-      <p>{translations[language].subtitle}</p>
+        <h1 className={common.title}>{translations[language].title}</h1>
+        <p>{translations[language].subtitle}</p>
 
         <button className={common.blackButton} onClick={onStart}>
           ▶ {language === 'ja' ? 'スタート' : 'Start'}
         </button>
       </div>
-      <img
-        src="images/dolphin.svg"
+
+      <Image
+        src="/images/dolphin.svg"
         alt="イルカ"
+        width={40}
+        height={32}
         className={common.dolphinIcon}
+        priority={true}
       />
     </div>
   )

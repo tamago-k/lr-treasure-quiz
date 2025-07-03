@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import common from '../styles/common.module.css'
 
 type Props = {
@@ -42,10 +43,14 @@ export default function GameOverScreen({ difficulty, onRetry, onBackToStart, lan
           </button>
         </div>
       </div>
-      <img
-        src="images/yusya_gameover.svg"
+
+      <Image
+        src="/images/yusya_gameover.svg"
         alt="勇者"
+        width={120}
+        height={120}
         className={common.yusyaIconGameover}
+        priority={true}
       />
     </div>
   )

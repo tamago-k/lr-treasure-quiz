@@ -38,7 +38,7 @@ export default function Home() {
           });
         });
     }
-  }, [gameState, difficulty, language])
+  }, [API_BASE_URL, gameState, difficulty, language])
 
   return (
     <>
