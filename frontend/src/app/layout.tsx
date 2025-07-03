@@ -139,11 +139,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     };
   }, []);
 
-  // children に language propを追加して渡す（ページやコンポーネントで受け取れる）
+  type PropsWithLanguage = {
+    language: "ja" | "en";
+  };
+
   const childrenWithLanguage = React.Children.map(children, (child) => {
-    if (React.isValidElement(child)) {
-      // 一時的に any キャストして型エラーを無視する
-      return React.cloneElement(child, { language } as any);
+    if (React.isValidElement<PropsWithLanguage>(child)) {
+      return React.cloneElement(child, { language });
     }
     return child;
   });
