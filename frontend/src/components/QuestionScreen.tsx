@@ -16,11 +16,13 @@ const translations = {
     notion: '進むべき方向を選ぼう！',
     loading: '問題データを読み込み中です...',
     slash: '/',
+    coution: '文字に騙されず正しい方向を押してね',
   },
   en: {
     notion: 'Choose the direction to move forward!',
     loading: 'Loading questions...',
     slash: '/',
+    coution: "Don't be fooled by the text — press the correct direction!",
   },
 }
 const buttonLabels = {
@@ -155,6 +157,9 @@ export default function QuestionScreen({
           </div>
           <p className={common.question}>{questions[currentIndex].prompt}</p>
           <div className={common.buttonAns}>{buttons}</div>
+          {difficulty === 'hard' && (
+            <p style={{ marginTop: '20px' }}>*{t.coution}</p>
+          )}
         </div>
       </div>
     </div>
