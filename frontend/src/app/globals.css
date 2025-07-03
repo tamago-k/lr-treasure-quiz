@@ -24,6 +24,13 @@ body {
   overflow-x: hidden;
 }
 
+html,
+body, h1, h2, h3, div, p, button {
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -43,7 +50,7 @@ a {
 }
 
 .language-toggle {
-  position: fixed;
+  position: absolute;
   top: 10px;
   right: 10px;
   z-index: 1000;
@@ -68,7 +75,7 @@ a {
 .app-container {
   width: 100vw;
   height: 100vh;
-  max-width: 800px;
+  max-width: 500px;
   max-height: 1000px;
   margin: 0 auto;
   overflow: hidden;
@@ -124,7 +131,7 @@ a {
 
 
 .sea-wrapper {
-  height: 80%;
+  height: 82%;
   animation: sea-pikopiko 2s linear infinite;
   background: linear-gradient(
     to bottom,
@@ -187,11 +194,17 @@ a {
 
 
 /* スマホでもPCでも高さ幅100%に */
-@media (max-width: 800px), (max-height: 1000px) {
+@media (max-width: 800px) {
   .app-container {
     width: 100vw;
-    height: 100vh;
     max-width: none;
+  }
+}
+
+/* スマホでもPCでも高さ幅100%に */
+@media (max-height: 1000px) {
+  .app-container {
+    height: 100vh;
     max-height: none;
   }
 }
