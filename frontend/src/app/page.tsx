@@ -21,10 +21,11 @@ export default function Home() {
   const [gameState, setGameState] = useState<GameState>('start')
   const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('easy')
   const [questions, setQuestions] = useState([])
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
     if (gameState === 'question') {
-      fetch(`http://localhost:8000/questions?difficulty=${difficulty}&language=${language}`)
+      fetch(`${API_BASE_URL}/questions?difficulty=${difficulty}&language=${language}`)
         .then(res => res.json())
         .then(data => {
           // 前のquestionsと違う場合だけ更新

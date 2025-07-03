@@ -13,9 +13,10 @@ type Props = {
 export default function FortuneScreen({ onRestart, onTitle }: Props) {
   const [fortune, setFortune] = useState('')
   const { language } = useLang();
+  const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
   useEffect(() => {
-    fetch(`http://localhost:8000/fortune?language=${language}`)
+    fetch(`${API_BASE_URL}/fortune?language=${language}`)
       .then(res => res.json())
       .then(data => setFortune(data.fortune))
       .catch(() => setFortune(language === 'ja' ? '通信エラー' : 'Communication Error'))
