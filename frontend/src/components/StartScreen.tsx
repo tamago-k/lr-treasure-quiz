@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import common from '../styles/common.module.css'
 
 type Props = {

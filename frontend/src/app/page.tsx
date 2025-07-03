@@ -22,7 +22,6 @@ export default function Home() {
   const [difficulty, setDifficulty] = useState<'easy' | 'normal' | 'hard'>('easy')
   const [questions, setQuestions] = useState([])
   const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
-
   useEffect(() => {
     if (gameState === 'question') {
       fetch(`${API_BASE_URL}/questions?difficulty=${difficulty}&language=${language}`)
