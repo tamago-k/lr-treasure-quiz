@@ -6,6 +6,7 @@ import { useLang } from '../lib/langContext'
 
 type Props = {
   difficulty: 'easy' | 'normal' | 'hard'
+  language?: "ja" | "en"
   onRestart: () => void
   onTitle: () => void
 }

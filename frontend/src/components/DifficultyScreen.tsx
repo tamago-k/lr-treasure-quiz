@@ -4,7 +4,7 @@ import common from '../styles/common.module.css'
 
 type Props = {
   onSelect: (difficulty: 'easy' | 'normal' | 'hard') => void
-  language: 'ja' | 'en'  // 追加：言語を受け取る
+  language: 'ja' | 'en'
 }
 
 const translations = {

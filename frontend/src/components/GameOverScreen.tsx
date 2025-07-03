@@ -6,7 +6,7 @@ type Props = {
   difficulty: 'easy' | 'normal' | 'hard'
   onRetry: () => void
   onBackToStart: () => void
-  language: 'ja' | 'en'  // 追加
+  language: 'ja' | 'en'
 }
 
 const translations = {
