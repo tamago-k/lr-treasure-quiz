@@ -20,8 +20,8 @@ const translations = {
     hard: 'むずかしい',
     description: (
       <>
-        時間内に右か左か選んでお宝を探そう！<br />
-        選んだらすぐ始まるよ！
+        <ruby>時間内<rt>じかんない</rt></ruby>に<ruby>右<rt>みぎ</rt></ruby>か<ruby>左<rt>ひだり</rt></ruby>か<ruby>選<rt>えら</rt></ruby>んでお<ruby>宝<rt>たから</rt></ruby>を<ruby>探<rt>さが</rt></ruby>そう！<br />
+        <ruby>選<rt>えら</rt></ruby>んだらすぐ<ruby>始<rt>はじ</rt></ruby>まるよ！
       </>
     ),
   },
